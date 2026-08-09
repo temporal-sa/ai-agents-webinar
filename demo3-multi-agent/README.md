@@ -83,7 +83,7 @@ export OPENAI_API_KEY=sk-...
 
 ### 4. Install dependencies
 
-From either `demo5-multi-agent/exercise/` or `demo5-multi-agent/solution/`:
+From either `demo3-multi-agent/exercise/` or `demo3-multi-agent/solution/`:
 
 ```bash
 uv sync

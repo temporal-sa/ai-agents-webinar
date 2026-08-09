@@ -1,7 +1,7 @@
 #!/bin/bash
 # Drives the native Temporal AI agent solution to completion, non-interactively.
 set -uo pipefail
-cd /root/workshop/demo1-agentic-loop/solution || exit 0
+cd /root/workshop/demo1-native-temporal-ai-agent/solution || exit 0
 
 pkill -f "worker\.py\|python -m worker" 2>/dev/null || true
 sleep 1

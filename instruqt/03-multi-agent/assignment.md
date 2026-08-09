@@ -32,15 +32,15 @@ tabs:
 - title: Worker PA
   type: terminal
   hostname: workshop
-  workdir: /root/workshop/demo5-multi-agent/exercise
+  workdir: /root/workshop/demo3-multi-agent/exercise
 - title: Worker F1
   type: terminal
   hostname: workshop
-  workdir: /root/workshop/demo5-multi-agent/exercise
+  workdir: /root/workshop/demo3-multi-agent/exercise
 - title: Starter
   type: terminal
   hostname: workshop
-  workdir: /root/workshop/demo5-multi-agent/exercise
+  workdir: /root/workshop/demo3-multi-agent/exercise
 - title: Temporal UI
   type: service
   hostname: workshop
@@ -52,7 +52,7 @@ tabs:
 - title: Editor
   type: service
   hostname: workshop
-  path: /?folder=/root/workshop/demo5-multi-agent
+  path: /?folder=/root/workshop/demo3-multi-agent
   port: 8080
 - title: Architecture
   type: service
@@ -74,7 +74,7 @@ Click any box to trace what it calls and what calls it. Then press **Play data f
 
 ## What Changed
 
-Click the [button label="Editor" background="#444CE7"](tab-5) tab. Key files in `demo5-multi-agent`:
+Click the [button label="Editor" background="#444CE7"](tab-5) tab. Key files in `demo3-multi-agent`:
 
 - `personal_assistant.py` - the orchestrator. Uses `child_workflow_as_tool` for weather and `nexus_operation_as_tool` for F1.
 - `weather_agent.py` - runs as its own workflow on `weather-agent-tq`.

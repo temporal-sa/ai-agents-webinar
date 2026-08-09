@@ -7,9 +7,9 @@ A focused, hands-on course for building durable AI agents in Python with
 
 | Module | Topic | Code |
 |---|---|---|
-| 1 | Native Temporal AI Agent: implement the agentic loop directly as a durable workflow | [`demo1-agentic-loop`](demo1-agentic-loop/) |
-| 2 | Human-in-the-loop: pause an agent, collect input, and resume with Signals and Queries | [`demo4-hitl`](demo4-hitl/) |
-| 3 | Multi-agent orchestration: delegate to specialists with child workflows and Nexus | [`demo5-multi-agent`](demo5-multi-agent/) |
+| 1 | Native Temporal AI Agent: implement the agentic loop directly as a durable workflow | [`demo1-native-temporal-ai-agent`](demo1-native-temporal-ai-agent/) |
+| 2 | Human-in-the-loop: pause an agent, collect input, and resume with Signals and Queries | [`demo2-human-in-the-loop`](demo2-human-in-the-loop/) |
+| 3 | Multi-agent orchestration: delegate to specialists with child workflows and Nexus | [`demo3-multi-agent`](demo3-multi-agent/) |
 
 Each module contains an `exercise/` directory for attendees and a `solution/`
 directory with the completed reference implementation.
@@ -36,7 +36,7 @@ temporal server start-dev
 In another terminal, choose a module and either its exercise or solution:
 
 ```bash
-cd demo1-agentic-loop/exercise
+cd demo1-native-temporal-ai-agent/exercise
 uv sync
 export OPENAI_API_KEY=sk-...
 uv run python -m worker
