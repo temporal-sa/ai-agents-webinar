@@ -60,7 +60,6 @@ class AgentWorkflow:
                 )
                 return llm_result.output_text
 
-
     async def _handle_function_call(self, item, llm_result, input_list):
         # serialize the LLM output - the decision the LLM made to call a tool
         i = llm_result.output[0]
@@ -80,4 +79,3 @@ class AgentWorkflow:
         workflow.logger.info("Made a tool call to %s", item.name)
 
         return tool_output
- 

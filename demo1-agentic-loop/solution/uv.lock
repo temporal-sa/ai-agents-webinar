@@ -138,7 +138,7 @@ wheels = [
 ]
 
 [[package]]
-name = "cookbook-basic-python"
+name = "ai-agents-webinar-native-temporal-agent"
 version = "0.1"
 source = { virtual = "." }
 dependencies = [

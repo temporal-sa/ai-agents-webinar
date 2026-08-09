@@ -1,9 +1,7 @@
-The files in this directory should not be considered a part of the agent implmementation, rather 
-are metaphorically a set of tools that are made available to the agent at "runtime". This is 
-reminiscent of registering MCP tools with something like Claude Desktop or Cursor. In this sample
-we have not implemented that tool registry and have instead isolated the tool registry into this
-separate set of files. We also are reloading tools at runtime, rather, whichever tools are defined
-at the time we start the agent are loaded.
+The files in this directory are not part of the agent implementation. Instead,
+they represent tools made available to the agent at runtime, similar to
+registering MCP tools with an agent client. This sample keeps its tool registry
+in these files and loads the tools defined when the agent starts.
 
 The tools, however, are completely abstracted away from the agent.
 

@@ -1,6 +1,6 @@
-# Demo 1 - Agentic Loop
+# Module 1 - Native Temporal AI Agent
 
-An agentic loop implemented as a Temporal workflow, using the OpenAI Responses API directly. The agent calls an LLM with a set of tools and loops until it has enough information to answer the user's goal.
+A native Temporal AI agent implemented without an agent framework. The workflow calls the OpenAI Responses API directly, dispatches tools as activities, and loops until it has enough information to answer the user's goal.
 
 ## Architecture
 
@@ -48,7 +48,7 @@ export OPENAI_API_KEY=sk-...
 
 ### 3. Install dependencies
 
-From `demo1-agentic-loop/`:
+From either `demo1-agentic-loop/exercise/` or `demo1-agentic-loop/solution/`:
 
 ```bash
 uv sync
@@ -64,7 +64,7 @@ The worker registers the workflow and activities with Temporal and begins pollin
 
 ### 5. Start a workflow
 
-In a second terminal (also from `demo1-agentic-loop/`):
+In a second terminal from the same directory:
 
 ```bash
 uv run python -m start_workflow "What is the weather in Barcelona?"
