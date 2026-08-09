@@ -31,11 +31,11 @@ tabs:
 - title: Worker
   type: terminal
   hostname: workshop
-  workdir: /root/workshop/demo1-agentic-loop/exercise
+  workdir: /root/workshop/demo1-native-temporal-ai-agent/exercise
 - title: Starter
   type: terminal
   hostname: workshop
-  workdir: /root/workshop/demo1-agentic-loop/exercise
+  workdir: /root/workshop/demo1-native-temporal-ai-agent/exercise
 - title: Temporal UI
   type: service
   hostname: workshop
@@ -47,7 +47,7 @@ tabs:
 - title: Editor
   type: service
   hostname: workshop
-  path: /?folder=/root/workshop/demo1-agentic-loop
+  path: /?folder=/root/workshop/demo1-native-temporal-ai-agent
   port: 8080
 difficulty: basic
 timelimit: 1800
@@ -81,7 +81,7 @@ An agentic loop is the engine behind every AI agent. Most frameworks hide it fro
 
 ## The Code
 
-Click the [button label="Editor" background="#444CE7"](tab-4) tab. Key files in `demo1-agentic-loop`:
+Click the [button label="Editor" background="#444CE7"](tab-4) tab. Key files in `demo1-native-temporal-ai-agent`:
 
 - `workflows/agent.py` - the `while True` loop: call LLM, dispatch tool if needed, repeat until done
 - `activities/openai_responses.py` - the LLM activity

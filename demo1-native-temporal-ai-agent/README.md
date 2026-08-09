@@ -48,7 +48,7 @@ export OPENAI_API_KEY=sk-...
 
 ### 3. Install dependencies
 
-From either `demo1-agentic-loop/exercise/` or `demo1-agentic-loop/solution/`:
+From either `demo1-native-temporal-ai-agent/exercise/` or `demo1-native-temporal-ai-agent/solution/`:
 
 ```bash
 uv sync

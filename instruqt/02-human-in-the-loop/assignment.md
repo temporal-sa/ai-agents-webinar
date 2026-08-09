@@ -32,11 +32,11 @@ tabs:
 - title: Worker
   type: terminal
   hostname: workshop
-  workdir: /root/workshop/demo4-hitl/exercise
+  workdir: /root/workshop/demo2-human-in-the-loop/exercise
 - title: Starter
   type: terminal
   hostname: workshop
-  workdir: /root/workshop/demo4-hitl/exercise
+  workdir: /root/workshop/demo2-human-in-the-loop/exercise
 - title: Temporal UI
   type: service
   hostname: workshop
@@ -48,7 +48,7 @@ tabs:
 - title: Editor
   type: service
   hostname: workshop
-  path: /?folder=/root/workshop/demo4-hitl
+  path: /?folder=/root/workshop/demo2-human-in-the-loop
   port: 8080
 - title: Architecture
   type: service
@@ -70,7 +70,7 @@ Click any box to trace what it calls and what calls it. Pay attention to the amb
 
 ## What Changed
 
-Click the [button label="Editor" background="#444CE7"](tab-4) tab. Key files in `demo4-hitl`:
+Click the [button label="Editor" background="#444CE7"](tab-4) tab. Key files in `demo2-human-in-the-loop`:
 
 - `tools_workflow.py` - an `ask_user` `@function_tool` is defined inside `run()` as a closure. It sets `self._input_needed = True` and blocks on `await workflow.wait_condition(...)`. The signal handler flips the flag to unblock it.
 - `start_workflow.py` - polls queries every 2 seconds. When `is_input_needed` is True, it prints the question, reads your response, and sends it as a signal.

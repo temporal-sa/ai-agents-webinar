@@ -68,7 +68,7 @@ export OPENAI_API_KEY=sk-...
 
 ### 3. Install dependencies
 
-From either `demo4-hitl/exercise/` or `demo4-hitl/solution/`:
+From either `demo2-human-in-the-loop/exercise/` or `demo2-human-in-the-loop/solution/`:
 
 ```bash
 uv sync

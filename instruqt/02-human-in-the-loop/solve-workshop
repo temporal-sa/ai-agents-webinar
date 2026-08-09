@@ -3,7 +3,7 @@
 # `yes` supplies the same canned answer to every question the agent asks -
 # start_workflow.py reads answers from stdin one line at a time.
 set -uo pipefail
-cd /root/workshop/demo4-hitl/solution || exit 0
+cd /root/workshop/demo2-human-in-the-loop/solution || exit 0
 
 pkill -f "python -m worker" 2>/dev/null || true
 sleep 1

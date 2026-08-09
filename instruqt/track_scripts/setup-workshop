@@ -88,9 +88,9 @@ mint_litellm_token() {
 # The image contains only these three modules. Keep this list in sync with the
 # challenge directories and Dockerfile.
 STAGED_DEMOS=(
-    demo1-agentic-loop
-    demo4-hitl
-    demo5-multi-agent
+    demo1-native-temporal-ai-agent
+    demo2-human-in-the-loop
+    demo3-multi-agent
 )
 
 if [ ! -d /root/workshop ]; then
@@ -134,17 +134,17 @@ nohup code-server \
 
 # Static server for the human-in-the-loop architecture diagram (port 8092).
 # Served from its own web root so "/" serves the diagram directly.
-mkdir -p /root/arch-4
-cp /opt/workshop/demo4-hitl/architecture.html /root/arch-4/index.html 2>/dev/null || true
-nohup python3 -m http.server 8092 --directory /root/arch-4 \
-    > /tmp/arch-server-4.log 2>&1 &
+mkdir -p /root/arch-hitl
+cp /opt/workshop/demo2-human-in-the-loop/architecture.html /root/arch-hitl/index.html 2>/dev/null || true
+nohup python3 -m http.server 8092 --directory /root/arch-hitl \
+    > /tmp/arch-server-hitl.log 2>&1 &
 
 # Static server for the multi-agent architecture diagram (port 8090).
 # Served from its own web root so "/" serves the diagram directly.
-mkdir -p /root/arch
-cp /opt/workshop/demo5-multi-agent/architecture.html /root/arch/index.html 2>/dev/null || true
-nohup python3 -m http.server 8090 --directory /root/arch \
-    > /tmp/arch-server.log 2>&1 &
+mkdir -p /root/arch-multi-agent
+cp /opt/workshop/demo3-multi-agent/architecture.html /root/arch-multi-agent/index.html 2>/dev/null || true
+nohup python3 -m http.server 8090 --directory /root/arch-multi-agent \
+    > /tmp/arch-server-multi-agent.log 2>&1 &
 
 # 5. Wait for Temporal health.
 for i in $(seq 1 60); do
