@@ -44,8 +44,8 @@ async def main() -> None:
     # Open a trace so the plugin's interceptor propagates trace context to the
     # orchestrator workflow, and from there into the weather child workflow.
     # The F1 expert lives behind a Nexus boundary that the contrib doesn't
-    # currently propagate trace context across — see worker_f1.py and
-    # docs/research/openai-agents-plugin-starter-trace-requirement.md.
+    # currently propagate trace context across — see worker_f1.py and the
+    # Known limitations section in this directory's README.
     with trace("PersonalAssistant"):
         # Starts a new workflow execution and waits for its result.
         result = await client.execute_workflow(

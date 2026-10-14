@@ -1,4 +1,4 @@
-# Module 2 - Human in the Loop
+# Human in the Loop
 
 This module adds the ability for the agent to ask the user questions mid-execution. The LLM decides when it needs clarification and uses an `ask_user` tool to pause the workflow, get input from the user, and continue.
 
