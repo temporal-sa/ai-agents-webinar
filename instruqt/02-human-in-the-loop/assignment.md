@@ -185,7 +185,7 @@ uv run python -m start_workflow "What's the weather like for the race I'm going 
 
 When the agent asks which race, answer `the next race`.
 
-The agent uses the Formula 1 MCP tools to find the race location, then calls the weather tools for that location. In the [button label="Temporal UI" background="#444CE7"](tab-2) tab, look for both `f1-data-call-tool-v2` and the weather activities in the same workflow history.
+The agent uses the Formula 1 MCP tools to find the race location, then calls the weather tools for that location. In the [button label="Temporal UI" background="#444CE7"](tab-2) tab, look for both `f1-data-stateless-call-tool-v2` and the weather activities in the same workflow history.
 
 ## Reconnect to a Waiting Workflow
 
