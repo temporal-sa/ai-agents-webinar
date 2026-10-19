@@ -138,7 +138,7 @@ The starter does not return. Leave it.
 **3. Observe.** Switch to the [button label="Temporal UI" background="#444CE7"](tab-2) tab and open the running workflow. Find these three things:
 
 - The workflow status is still **Running** - it did not fail.
-- The `get_weather` activity is in **Retrying**, with an attempt counter climbing and a growing backoff between attempts. `get_location_info` already returned latitude and longitude, so the agent did not call `get_coordinates`.
+- The `get_weather` activity is in **Retrying**, with an attempt counter climbing and a growing backoff between attempts.
 - Every activity before it - the `create` LLM calls, `get_ip_address`, and `get_location_info` - is still marked **Completed**. Their results are in the history.
 
 **4. Answer this question.** Before you turn the service back on, commit to an answer:

@@ -157,11 +157,11 @@ The agent pauses and asks for your destination. Type a city and press Enter - an
 
 - Status is still **Running**.
 - The history shows the `provide_user_input` signal you sent, recorded as a permanent event.
-- After it, the weather activity is **Retrying**.
+- After it, the `get_coordinates` activity is **Retrying**.
 
 **4. Answer this question.** Before you turn the service back on:
 
-> Your typed destination lives only in the workflow's history - there is no database behind this demo. As the weather activity retries, will the agent prompt you for that destination again?
+> Your typed destination lives only in the workflow's history - there is no database behind this demo. As `get_coordinates` retries, will the agent prompt you for that destination again?
 
 <details>
 <summary>Answer</summary>
