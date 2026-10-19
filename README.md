@@ -107,23 +107,22 @@ git add .
 git commit -m "Pin Instruqt webinar IDs"
 ```
 
-For later updates:
+## Publishing
 
-```bash
-just validate
-just test
-just push
-```
+A merge to `main` publishes the course. The
+[demo cloud registry](https://github.com/temporal-sa/tmprl-demo-cloud-registry)
+watches this repository through
+[`projects/instruqt/ai-agents-webinar.yaml`](https://github.com/temporal-sa/tmprl-demo-cloud-registry/blob/main/projects/instruqt/ai-agents-webinar.yaml).
+Its operator builds `instruqt/docker/Dockerfile` for `linux/amd64`, injects that
+image into the track, and runs `instruqt track push --force`. That publishes
+both the challenge text and the sandbox image, including the demo code and
+architecture pages.
 
-The sandbox image contains only the three webinar modules. Build it from the
-repository root:
+A pull request does not deploy. The operator does not run `instruqt track
+validate`, `instruqt track test`, or `instruqt track deploy`.
 
-```bash
-cd ..
-docker buildx build --platform linux/amd64 \
-  -f instruqt/docker/Dockerfile \
-  -t docker.io/nadvolod/ai-agents-webinar-sandbox:latest --push .
-```
+Change `.tmprl-demo-cloud-redeploy` when a fresh course artifact is required
+and the course content itself did not change.
 
 ## Push this fork
 
