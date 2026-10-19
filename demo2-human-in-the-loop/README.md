@@ -124,6 +124,6 @@ In the Temporal UI, running workflows show:
 
 - `invoke_model_activity` — LLM calls.
 - Weather activities (`get_coordinates`, `get_weather`, etc.) — the `@activity.defn` tools.
-- `f1-data-list-tools` / `f1-data-call-tool-v2` — F1 MCP operations.
+- `f1-data-stateless-list-tools` / `f1-data-stateless-call-tool-v2` — F1 MCP operations.
 - Signal events (`provide_user_input`) when the user responds.
 - While the workflow is paused on `wait_condition`, it shows as "Running" but consumes no worker resources.

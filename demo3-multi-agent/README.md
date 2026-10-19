@@ -133,7 +133,7 @@ In the Temporal Web UI at [http://localhost:8233](http://localhost:8233) you'll 
 
 - The **orchestrator workflow** on `orchestrator-tq`. Its history shows `StartChildWorkflowExecution` → `ChildWorkflowExecutionCompleted` for the weather path, and `NexusOperationScheduled` → `NexusOperationStarted` → `NexusOperationCompleted` for the F1 path.
 - A separate **weather child workflow** on `weather-agent-tq`, with the four weather activities visible in its own history.
-- A separate **F1 expert workflow** on `f1-expert-agent-tq`, started by the Nexus operation handler. Its history shows the F1 MCP `f1-data-list-tools` and `f1-data-call-tool-v2` activities.
+- A separate **F1 expert workflow** on `f1-expert-agent-tq`, started by the Nexus operation handler. Its history shows the F1 MCP `f1-data-stateless-list-tools` and `f1-data-stateless-call-tool-v2` activities.
 
 In the OpenAI trace dashboard at [https://platform.openai.com/traces](https://platform.openai.com/traces):
 
