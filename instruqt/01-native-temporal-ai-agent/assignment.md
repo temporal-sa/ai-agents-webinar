@@ -125,7 +125,7 @@ Switch to the [button label="Temporal UI" background="#444CE7"](tab-2) tab while
 
 Do all five steps. This is the point of the whole workshop.
 
-**1. Turn off the service.** Click the [button label="Network Control Panel" background="#444CE7"](tab-3) tab and toggle **Weather** off. The proxy now returns `503` for every call to `api.open-meteo.com`.
+**1. Turn off the service.** Click the [button label="Network Control Panel" background="#444CE7"](tab-3) tab and toggle **Weather** off. The proxy now returns `503` for `api.open-meteo.com` and `geocoding-api.open-meteo.com`.
 
 **2. Run a workflow.** Click the [button label="Starter" background="#444CE7"](tab-1) terminal:
 
@@ -138,19 +138,19 @@ The starter does not return. Leave it.
 **3. Observe.** Switch to the [button label="Temporal UI" background="#444CE7"](tab-2) tab and open the running workflow. Find these three things:
 
 - The workflow status is still **Running** - it did not fail.
-- The `get_weather` activity is in **Retrying**, with an attempt counter climbing and a growing backoff between attempts.
-- Every activity *before* it - the LLM calls, `get_ip_address`, `get_location_info`, `get_coordinates` - is still marked **Completed**. Their results are in the history.
+- The `get_weather` activity is in **Retrying**, with an attempt counter climbing and a growing backoff between attempts. `get_location_info` already returned latitude and longitude, so the agent did not call `get_coordinates`.
+- Every activity before it - the `create` LLM calls, `get_ip_address`, and `get_location_info` - is still marked **Completed**. Their results are in the history.
 
 **4. Answer this question.** Before you turn the service back on, commit to an answer:
 
-> The LLM has already answered several times and three tools have already run. When the weather call finally succeeds, does your `while True` loop start over from the first LLM call?
+> The LLM has already answered, and `get_ip_address` and `get_location_info` have finished. When `get_weather` finally succeeds, does your `while True` loop start over from the first LLM call?
 
 <details>
 <summary>Answer</summary>
 
 No. Nothing before the failure re-executes.
 
-When the retry succeeds, Temporal rebuilds your workflow's state by **replaying** the recorded history. Each `await workflow.execute_activity(...)` that already completed returns its recorded result instantly - the LLM is not called again, and the three tools are not called again. Your loop is fast-forwarded to exactly the iteration it was on, and only the weather call actually runs.
+When the retry succeeds, Temporal rebuilds your workflow's state by **replaying** the recorded history. Each `await workflow.execute_activity(...)` that already completed returns its recorded result instantly - the `create` calls are not made again, and `get_ip_address` and `get_location_info` are not called again. Your loop is fast-forwarded to exactly the iteration it was on, and only `get_weather` actually runs.
 
 The LLM tokens you already paid for stay paid for once.
 </details>
