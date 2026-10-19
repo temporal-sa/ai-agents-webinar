@@ -178,7 +178,7 @@ uv run python -m start_workflow "When is the next F1 race and what's the weather
 
 **3. Observe.** Switch to the [button label="Temporal UI" background="#444CE7"](tab-3) tab and look at all three executions:
 
-- **WeatherAgentWorkflow** on `weather-agent-tq` - its weather activity is **Retrying**.
+- **WeatherAgentWorkflow** on `weather-agent-tq` - its `get_coordinates` activity is **Retrying**.
 - **F1ExpertAgentWorkflow** on `f1-expert-agent-tq` - **Completed**. Unaffected.
 - The **orchestrator** on `orchestrator-tq` - still **Running**, waiting on the child. Its `NexusOperationCompleted` for F1 is already recorded.
 
