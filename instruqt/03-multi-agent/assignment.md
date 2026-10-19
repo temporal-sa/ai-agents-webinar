@@ -1,7 +1,7 @@
 ---
 slug: multi-agent
 type: challenge
-title: 'Module 3: Multi-Agent Orchestration'
+title: Multi-Agent Orchestration
 teaser: Three agents, three workflows. A personal assistant delegates to specialists
   via child workflow and Nexus.
 notes:
@@ -64,7 +64,7 @@ timelimit: 1800
 enhanced_loading: null
 ---
 
-# Module 3: Multi-Agent Orchestration
+# Multi-Agent Orchestration
 
 ## See the Big Picture First
 
@@ -166,7 +166,7 @@ Each specialist is independently observable, independently retryable, and could 
 
 ## Break It: The Durability Test
 
-Three workflows, two workers, two task queues. Now take out a dependency that only *one* of them uses.
+Three workflows, two workers, three task queues. Now take out a dependency that only *one* of them uses.
 
 **1. Turn off the service.** Click the [button label="Network Control Panel" background="#444CE7"](tab-4) tab and toggle **Weather** off. Only the weather specialist calls that host - the F1 expert does not.
 

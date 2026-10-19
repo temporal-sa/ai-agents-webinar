@@ -1,4 +1,4 @@
-# Module 1 - Native Temporal AI Agent
+# Native Temporal AI Agent
 
 A native Temporal AI agent implemented without an agent framework. The workflow calls the OpenAI Responses API directly, dispatches tools as activities, and loops until it has enough information to answer the user's goal.
 

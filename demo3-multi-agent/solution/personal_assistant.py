@@ -68,8 +68,7 @@ class PersonalAssistantWorkflow:
         # The contrib helper has no description hook (the Operation dataclass
         # doesn't carry one and the stub function it inspects has no __doc__).
         # Set the description directly on the FunctionTool so the LLM has a
-        # real signal for when to choose this tool. See
-        # docs/research/openai-agents-plugin-starter-trace-requirement.md (Issue 2).
+        # real signal for when to choose this tool.
         f1_tool.description = (
             "Delegate Formula 1 questions to the F1 expert specialist. "
             "It can look up race schedules, results, driver and constructor "

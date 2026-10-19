@@ -1,7 +1,7 @@
 ---
 slug: native-temporal-ai-agent
 type: challenge
-title: 'Module 1: Native Temporal AI Agent'
+title: Native Temporal AI Agent
 teaser: Build an AI agent natively as a Temporal Workflow. Watch it survive
   a failure mid-run.
 notes:
@@ -24,7 +24,7 @@ notes:
     Call the LLM. Check if it wants a tool. Call the tool. Feed the result
     back. Repeat until the model returns a final answer.
 
-    Module 1 makes that loop explicit, written by hand as a Temporal Workflow.
+    Here that loop is explicit, written by hand as a Temporal Workflow.
     The LLM call is one activity. Each tool dispatch is another. Every step
     appears in the event history.
 tabs:
@@ -54,7 +54,7 @@ timelimit: 1800
 enhanced_loading: null
 ---
 
-# Module 1: Native Temporal AI Agent
+# Native Temporal AI Agent
 
 > [!NOTE]
 > **Your tabs.** This demo gives you five:
@@ -63,13 +63,10 @@ enhanced_loading: null
 > - [button label="Temporal UI" background="#444CE7"](tab-2) - the event history of every workflow you run
 > - [button label="Network Control Panel" background="#444CE7"](tab-3) - toggle external services off to force failures
 > - [button label="Editor" background="#444CE7"](tab-4) - VS Code, opened on this demo's folder
->
-> Later modules add an **Architecture** view and split the Worker tab when
-> specialist agents begin polling their own task queues.
 
 ## Why
 
-An agentic loop is the engine behind every AI agent. Most frameworks hide it from you. Module 1 makes you write it by hand, so you see exactly what it is:
+An agentic loop is the engine behind every AI agent. Most frameworks hide it from you. Here you write it by hand, so you see exactly what it is:
 
 - Call the LLM with the conversation and available tools
 - Check whether the model asked for a tool
@@ -122,7 +119,7 @@ You should see a final answer printed after a few seconds, describing the curren
 
 Switch to the [button label="Temporal UI" background="#444CE7"](tab-2) tab while the workflow runs. Click into it and you'll see each LLM call and each tool invocation as a separate activity in the event history - the full decision trail of the agent.
 
-> **Predict before you look:** the prompt needed IP lookup, location lookup, coordinates, and weather - four tool calls plus the LLM reasoning between each. How many activities do you expect in the event history? Now check - were you right?
+> **Predict before you look:** the prompt names a city, so the agent needs coordinates and then weather - two tool calls plus the LLM reasoning between each. How many activities do you expect in the event history? Now check - were you right?
 
 ## Break It: The Durability Test
 

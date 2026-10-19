@@ -1,4 +1,4 @@
-# Module 3 - Multi-agent orchestration
+# Multi-agent orchestration
 
 Three OpenAI Agents SDK agents wired together through Temporal: a **personal-assistant** orchestrator delegates to two specialists — a **weather forecaster** and an **F1 expert**. Each specialist runs in its own Temporal workflow execution. The orchestrator invokes one via a **child workflow** and the other via **Nexus**, so the demo shows both cross-workflow primitives side by side.
 
