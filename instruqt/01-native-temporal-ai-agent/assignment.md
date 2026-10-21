@@ -139,7 +139,7 @@ The starter does not return. Leave it.
 
 - The workflow status is still **Running** - it did not fail.
 - The `get_weather` activity is in **Retrying**, with an attempt counter climbing and a growing backoff between attempts.
-- Every activity before it - the `create` LLM calls, `get_ip_address`, and `get_location_info` - is still marked **Completed**. Their results are in the history.
+- Every activity before it - the `invoke_model` LLM calls, `get_ip_address`, and `get_location_info` - is still marked **Completed**. Their results are in the history.
 
 **4. Answer this question.** Before you turn the service back on, commit to an answer:
 
@@ -150,7 +150,7 @@ The starter does not return. Leave it.
 
 No. Nothing before the failure re-executes.
 
-When the retry succeeds, Temporal rebuilds your workflow's state by **replaying** the recorded history. Each `await workflow.execute_activity(...)` that already completed returns its recorded result instantly - the `create` calls are not made again, and `get_ip_address` and `get_location_info` are not called again. Your loop is fast-forwarded to exactly the iteration it was on, and only `get_weather` actually runs.
+When the retry succeeds, Temporal rebuilds your workflow's state by **replaying** the recorded history. Each `await workflow.execute_activity(...)` that already completed returns its recorded result instantly - the `invoke_model` calls are not made again, and `get_ip_address` and `get_location_info` are not called again. Your loop is fast-forwarded to exactly the iteration it was on, and only `get_weather` actually runs.
 
 The LLM tokens you already paid for stay paid for once.
 </details>

@@ -21,7 +21,7 @@ class OpenAIResponsesRequest:
 
 # Activity: a durable, retryable unit of non-deterministic work (I/O, API calls).
 @activity.defn
-async def create(request: OpenAIResponsesRequest) -> Response:
+async def invoke_model(request: OpenAIResponsesRequest) -> Response:
     # Retries are Temporal's job, not the client's.
     client = AsyncOpenAI(max_retries=0)
 
