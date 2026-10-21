@@ -26,7 +26,7 @@ async def main():
         task_queue="tool-invoking-agent-python-task-queue",
         workflows=[AgentWorkflow],
         activities=[
-            openai_responses.create,
+            openai_responses.invoke_model,
             tool_invoker.dynamic_tool_activity,
         ],
     )

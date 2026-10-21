@@ -28,7 +28,7 @@ class AgentWorkflow:
         #     # consult the LLM
         #     # Activity: a durable, retryable unit of non-deterministic work (I/O, API calls).
         #     llm_result = await workflow.execute_activity(
-        #         openai_responses.create,
+        #         openai_responses.invoke_model,
         #         openai_responses.OpenAIResponsesRequest(
         #             model="gpt-3.5-turbo",
         #             instructions=tool_helpers.HELPFUL_AGENT_SYSTEM_INSTRUCTIONS,
