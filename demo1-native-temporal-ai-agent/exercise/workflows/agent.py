@@ -30,7 +30,7 @@ class AgentWorkflow:
         #     llm_result = await workflow.execute_activity(
         #         openai_responses.invoke_model,
         #         openai_responses.OpenAIResponsesRequest(
-        #             model="gpt-3.5-turbo",
+        #             model="gpt-6.1-terra",
         #             instructions=tool_helpers.HELPFUL_AGENT_SYSTEM_INSTRUCTIONS,
         #             input=input_list,
         #             tools=get_tools(),
