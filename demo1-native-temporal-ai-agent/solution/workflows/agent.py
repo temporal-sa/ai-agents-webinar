@@ -36,14 +36,24 @@ class AgentWorkflow:
                 start_to_close_timeout=timedelta(seconds=60),
             )
 
-            # For this simple example, we only have one item in the output list.
-            # Either the LLM will have chosen a single function call or it will
-            # have chosen to respond with a message.
-            item = llm_result.output[0]
+            # One response can hold several output items: reasoning, one or more
+            # function calls, and/or a message. Add them all to the conversation
+            # so the next LLM call sees everything the model just produced.
+            input_list += [item.model_dump(exclude_none=True) for item in llm_result.output]
 
-            # if the result is a tool call, call the tool
-            if item.type == "function_call":
-                tool_output = await self._handle_function_call(item, llm_result, input_list)
+            function_calls = [item for item in llm_result.output if item.type == "function_call"]
+
+            # if the LLM didn't ask for any tools, respond with its message
+            if not function_calls:
+                workflow.logger.info(
+                    "No tools chosen, responding with a message: %s",
+                    llm_result.output_text,
+                )
+                return llm_result.output_text
+
+            # otherwise call every tool it asked for
+            for item in function_calls:
+                tool_output = await self._handle_function_call(item)
 
                 # add the tool call result to the input list for context
                 input_list.append({
@@ -52,20 +62,7 @@ class AgentWorkflow:
                     "output": tool_output,
                 })
 
-            # if the result is not a tool call we will just respond with a message
-            else:
-                workflow.logger.info(
-                    "No tools chosen, responding with a message: %s",
-                    llm_result.output_text,
-                )
-                return llm_result.output_text
-
-    async def _handle_function_call(self, item, llm_result, input_list):
-        # serialize the LLM output - the decision the LLM made to call a tool
-        i = llm_result.output[0]
-        input_list += [
-            i.model_dump() if hasattr(i, "model_dump") else i
-        ]
+    async def _handle_function_call(self, item):
         # execute dynamic activity with the tool name chosen by the LLM
         # and the arguments crafted by the LLM
         args = json.loads(item.arguments) if isinstance(item.arguments, str) else item.arguments
