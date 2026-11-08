@@ -14,6 +14,7 @@ with workflow.unsafe.imports_passed_through():
     import pydantic_core.core_schema  # noqa: F401
 
     from agents import Agent, Runner
+    from model_input_filter import RUN_CONFIG
 
     from child_workflow_tool import child_workflow_as_tool
     from f1_expert_agent import F1ExpertService
@@ -81,5 +82,6 @@ class PersonalAssistantWorkflow:
             model="gpt-4o",
             tools=[weather_tool, f1_tool],
         )
-        result = await Runner.run(agent, input=question)
+        # RUN_CONFIG drops null fields some LLM gateways add; see model_input_filter.py.
+        result = await Runner.run(agent, input=question, run_config=RUN_CONFIG)
         return result.final_output

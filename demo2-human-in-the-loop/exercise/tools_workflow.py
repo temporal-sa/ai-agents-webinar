@@ -20,6 +20,7 @@ with workflow.unsafe.imports_passed_through():
     import pydantic_core.core_schema  # noqa: F401
 
     from agents import Agent, Runner, function_tool
+    from model_input_filter import RUN_CONFIG
 
     from tool_activities import (
         get_coordinates,
@@ -107,7 +108,9 @@ class AgentWorkflow:
             ],
         )
 
-        result = await Runner.run(agent, input=question)
+        # RUN_CONFIG drops null fields some LLM gateways add; see model_input_filter.py.
+
+        result = await Runner.run(agent, input=question, run_config=RUN_CONFIG)
         return result.final_output
 
     # Signal: an async message that can wake a suspended workflow and mutate its state.
