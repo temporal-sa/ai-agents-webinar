@@ -64,7 +64,6 @@ class F1ExpertAgentWorkflow:
             model="gpt-4o",
             mcp_servers=[f1],
         )
-        # RUN_CONFIG drops null fields some LLM gateways add; see model_input_filter.py.
         result = await Runner.run(agent, input=request.question, run_config=RUN_CONFIG)
         return AskResponse(answer=result.final_output)
 

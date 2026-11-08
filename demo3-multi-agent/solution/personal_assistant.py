@@ -82,6 +82,5 @@ class PersonalAssistantWorkflow:
             model="gpt-4o",
             tools=[weather_tool, f1_tool],
         )
-        # RUN_CONFIG drops null fields some LLM gateways add; see model_input_filter.py.
         result = await Runner.run(agent, input=question, run_config=RUN_CONFIG)
         return result.final_output
