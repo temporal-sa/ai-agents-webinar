@@ -8,7 +8,7 @@ from datetime import timedelta
 
 from agents import trace
 from temporalio.client import Client
-from temporalio.contrib.openai_agents import (
+from temporalio.openai_agents import (
     ModelActivityParameters,
     OpenAIAgentsPlugin,
 )

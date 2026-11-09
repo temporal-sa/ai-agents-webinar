@@ -63,7 +63,7 @@ COPY demo3-multi-agent/ /opt/workshop/demo3-multi-agent/
 # ── 6. Python deps (exercise/ and solution/ each need their own) ───────────────
 RUN for demo in demo1-native-temporal-ai-agent demo2-human-in-the-loop demo3-multi-agent; do \
         for variant in exercise solution; do \
-            (cd "/opt/workshop/${demo}/${variant}" && uv sync); \
+            (cd "/opt/workshop/${demo}/${variant}" && uv sync --frozen); \
         done; \
     done
 
