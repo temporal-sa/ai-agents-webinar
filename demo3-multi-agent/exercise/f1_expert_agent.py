@@ -10,7 +10,7 @@ import nexusrpc
 from nexusrpc.handler import service_handler
 from pydantic import BaseModel
 from temporalio import nexus, workflow
-from temporalio.contrib.openai_agents.workflow import stateless_mcp_server
+from temporalio.openai_agents.workflow import temporal_mcp_server
 
 
 # Nexus operation I/O — typed Pydantic models so nexus_operation_as_tool can
@@ -56,7 +56,7 @@ class F1ExpertAgentWorkflow:
     @workflow.run
     async def run(self, request: AskRequest) -> AskResponse:
         today = workflow.now().strftime("%Y-%m-%d")
-        f1 = stateless_mcp_server(name="f1-data", cache_tools_list=True)
+        f1 = temporal_mcp_server("f1-data")
         agent = Agent(
             name="F1Expert",
             instructions=SYSTEM_PROMPT.format(date=today),

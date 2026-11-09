@@ -6,7 +6,7 @@ from __future__ import annotations
 from datetime import timedelta
 
 from temporalio import workflow
-from temporalio.contrib.openai_agents.workflow import activity_as_tool
+from temporalio.openai_agents.workflow import activity_as_tool
 
 with workflow.unsafe.imports_passed_through():
     import annotated_types  # noqa: F401
