@@ -7,10 +7,9 @@ from datetime import timedelta
 
 from agents.mcp import MCPServerStdio
 from temporalio.client import Client
-from temporalio.contrib.openai_agents import (
+from temporalio.openai_agents import (
     ModelActivityParameters,
     OpenAIAgentsPlugin,
-    StatelessMCPServerProvider,
 )
 from temporalio.envconfig import ClientConfig
 from temporalio.worker import Worker
@@ -54,12 +53,8 @@ async def main() -> None:
             # Start-to-close timeout: max time Temporal allows one activity attempt to run.
             start_to_close_timeout=timedelta(seconds=60),
         ),
-        mcp_server_providers=[
-            StatelessMCPServerProvider(
-                name=MCP_SERVER_NAME,
-                server_factory=_f1_server_factory,
-            ),
-        ],
+        # MCP servers: name -> factory. Workflows reference the server by this name.
+        mcp_servers={MCP_SERVER_NAME: _f1_server_factory},
     )
 
     config = ClientConfig.load_client_connect_config()

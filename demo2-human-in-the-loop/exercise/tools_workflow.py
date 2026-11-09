@@ -6,9 +6,9 @@ from __future__ import annotations
 from datetime import timedelta
 
 from temporalio import workflow
-from temporalio.contrib.openai_agents.workflow import (
+from temporalio.openai_agents.workflow import (
     activity_as_tool,
-    stateless_mcp_server,
+    temporal_mcp_server,
 )
 
 with workflow.unsafe.imports_passed_through():
@@ -81,7 +81,7 @@ class AgentWorkflow:
             # self._user_input = ""
             # return answer
 
-        f1 = stateless_mcp_server(name="f1-data", cache_tools_list=True)
+        f1 = temporal_mcp_server("f1-data")
 
         agent = Agent(
             name="Agent",
