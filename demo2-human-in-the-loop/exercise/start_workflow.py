@@ -8,15 +8,14 @@ from datetime import timedelta
 
 from agents import trace
 from temporalio.client import Client
-from temporalio.contrib.openai_agents import (
+from temporalio.openai_agents import (
     ModelActivityParameters,
     OpenAIAgentsPlugin,
-    StatelessMCPServerProvider,
 )
 from temporalio.envconfig import ClientConfig
 
 from tools_workflow import AgentWorkflow
-from worker import MCP_SERVER_NAME, TASK_QUEUE, _f1_server_factory
+from worker import TASK_QUEUE
 
 POLL_INTERVAL_SECONDS = 2.0
 DEFAULT_QUERY = "Should I bring rain gear to the F1 race?"
@@ -78,12 +77,6 @@ async def main() -> None:
             # Start-to-close timeout: max time Temporal allows one activity attempt to run.
             start_to_close_timeout=timedelta(seconds=60),
         ),
-        mcp_server_providers=[
-            StatelessMCPServerProvider(
-                name=MCP_SERVER_NAME,
-                server_factory=_f1_server_factory,
-            ),
-        ],
     )
 
     config = ClientConfig.load_client_connect_config()
